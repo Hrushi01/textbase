@@ -13,7 +13,7 @@ class OpenAI:
         message_history: list[Message],
         model="gpt-3.5-turbo",
         max_tokens=3000,
-        temperature=0.7,
+        temperature=0.9,
     ):
         assert cls.api_key is not None, "OpenAI API key is not set"
         openai.api_key = cls.api_key
