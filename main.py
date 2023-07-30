@@ -7,11 +7,8 @@ from typing import List
 
 
 
-api_key = os.getenv("OPENAI_API_KEY")
-if api_key is None:
-    raise ValueError("OpenAI API key not found in the environment.")
 
-models.OpenAI.api_key = api_key
+models.OpenAI.api_key = "sk-84MejfHQzJJzDPm1j9duT3BlbkFJzxPRWGrUQcWfnD4eg1N"
 
 SYSTEM_PROMPT = """Welcome to the Fitness Freak chatbot! 
 I am here to help you achieve your fitness goals and lead a healthy lifestyle.
@@ -37,7 +34,7 @@ Please provide me with the following details:
 
 
 QUESTIONS = [
-    "1.Welcome to the Fitness Freak chatbot! "\
+    "Welcome to the Fitness Freak chatbot! "\
     "I am here to help you achieve your fitness goals and lead a healthy lifestyle."\
     "Whether you need personalized: "\
     "- workout routines"\
@@ -146,7 +143,8 @@ def personalized_workout_plan(user_info: dict,message_history) -> str:
         system_prompt=workout_plan,
         message_history=message_history,
         model="gpt-3.5-turbo",
-        temperature=0.9
+        temperature=0.9,
+        max_tokens=1000
     )
 
     return bot_response    
@@ -163,7 +161,8 @@ def nutrition_advice(user_info: dict, message_history) -> str:
         system_prompt=nutrition_advice,
         message_history=message_history,
         model="gpt-3.5-turbo",
-        temperature=0.9
+        temperature=0.9,
+        max_tokens=1000
     )
 
     return bot_response
@@ -181,7 +180,8 @@ def progress_tracking_info(user_info: dict, message_history) -> str:
         system_prompt=progress_info,
         message_history=message_history,
         model="gpt-3.5-turbo",
-        temperature=0.9
+        temperature=0.9,
+        max_tokens=1000
     )
 
     return bot_response
@@ -199,7 +199,8 @@ def motivational_support(user_info: dict, message_history) -> str:
         system_prompt=motivational_support,
         message_history=message_history,
         model="gpt-3.5-turbo",
-        temperature=0.9
+        temperature=0.9,
+        max_tokens=1000
     )
 
     return bot_response
