@@ -4,11 +4,17 @@ from textbase import models
 import os
 import json
 from typing import List
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+api_key = os.environ.get('OPENAI_API_KEY')
 
 
 
 
-models.OpenAI.api_key = "sk-84MejfHQzJJzDPm1j9duT3BlbkFJzxPRWGrUQcWfnD4eg1N"
+models.OpenAI.api_key =os.environ.get('OPENAI_API_KEY')
 
 SYSTEM_PROMPT = """Welcome to the Fitness Freak chatbot! 
 I am here to help you achieve your fitness goals and lead a healthy lifestyle.
